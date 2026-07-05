@@ -19,7 +19,6 @@
 		64E0A9ED93F27F85A39C94BF /* SharedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A718EDD36DE0C55225E93EDB /* SharedEvent.swift */; };
 		6916DEA8E759DDD780E33FFD /* AppleCalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49698031259669A33E6AEB4A /* AppleCalendarService.swift */; };
 		692391683D95A6CE89C6EA7B /* CalendarAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A47AA3DBD752D80B46A6420 /* CalendarAppApp.swift */; };
-		6D6156E1AE4A40274E591585 /* supabase_schema.sql in Resources */ = {isa = PBXBuildFile; fileRef = D42562949EC104B7B6ABEF91 /* supabase_schema.sql */; };
 		73AFF7E6EE869D05EEDBBCF7 /* CalendarSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BABC7AC0332DB67C242373D /* CalendarSource.swift */; };
 		808C266029B1FD01FA84D464 /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060DD828553335BF8304A0C1 /* FriendsViewModel.swift */; };
 		8F450C26FC858F3B34F48875 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03EC0BDB60B14E542E53311 /* EventDetailView.swift */; };
@@ -86,7 +85,6 @@
 		BD9A74FC33D556A72FA75AE9 /* UnifiedCalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedCalendarService.swift; sourceTree = "<group>"; };
 		BF19F85036CA52B5A1B71A0E /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		C5052A33598848A5C3EF9BC6 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		D42562949EC104B7B6ABEF91 /* supabase_schema.sql */ = {isa = PBXFileReference; path = supabase_schema.sql; sourceTree = "<group>"; };
 		F81814EB7D68216025E105BF /* SupabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseService.swift; sourceTree = "<group>"; };
 		FB37CD6D35E8A41594C9B340 /* EventSharingSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSharingSheet.swift; sourceTree = "<group>"; };
 		FEC4A295B7410DC1ABDCC826 /* PhoneAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthView.swift; sourceTree = "<group>"; };
@@ -195,7 +193,6 @@
 				501C746D28BC6BC610BBA122 /* CalendarApp.entitlements */,
 				30C8744B3A00D534ED4B3900 /* Info.plist */,
 				C5052A33598848A5C3EF9BC6 /* PrivacyInfo.xcprivacy */,
-				D42562949EC104B7B6ABEF91 /* supabase_schema.sql */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -341,7 +338,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3013B9224AB8A73994BA0FFE /* PrivacyInfo.xcprivacy in Resources */,
-				6D6156E1AE4A40274E591585 /* supabase_schema.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

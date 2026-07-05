@@ -295,7 +295,7 @@ Android ships from the Expo app (`apps/web/`):
 ```bash
 cd apps/ios
 # First time: create your secrets file
-cp CalendarApp/Config/Secrets.swift.example CalendarApp/Config/Secrets.swift  # then fill in values
+cp Secrets.swift.example CalendarApp/Config/Secrets.swift  # then fill in values
 # Generate Xcode project from spec (if using XcodeGen)
 xcodegen generate
 # Open in Xcode
