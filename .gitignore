@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+
+# Secrets — never commit real keys (use the .example templates)
+apps/ios/CalendarApp/Config/Secrets.swift
+
+# Xcode
+apps/ios/**/xcuserdata/
+apps/ios/**/*.xcuserstate
+apps/ios/**/DerivedData/
+apps/ios/**/build/
+
+# Node / Expo
+apps/web/node_modules/
+apps/web/.expo/
+apps/web/dist/
+apps/web/web-build/
+
+# Android (archived copy)
+docs/archive/android-native/**/build/
+docs/archive/android-native/local.properties
+docs/archive/android-native/*.keystore
+
+# Supabase CLI
+supabase/.temp/
+supabase/.branches/
