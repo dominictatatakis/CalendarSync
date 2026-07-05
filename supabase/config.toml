@@ -1,0 +1,15 @@
+# Supabase project configuration.
+# Push auth settings to the live project with: supabase config push
+
+project_id = "calendarsync"
+
+[auth]
+site_url = "https://dominictatatakis.github.io/CalendarSync"
+additional_redirect_urls = [
+  "https://dominictatatakis.github.io/CalendarSync/**",
+  "http://localhost:8081/**",
+]
+
+[auth.email.template.magic_link]
+subject = "Your CalendarSync sign-in code"
+content_path = "./supabase/templates/magic_link.html"
