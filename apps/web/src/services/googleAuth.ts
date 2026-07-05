@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
 
 // Google OAuth configuration
-const GOOGLE_WEB_CLIENT_ID = '995263830606-vj1t6lf3alm90v3eh7dsu3j9eavsslup.apps.googleusercontent.com';
+const GOOGLE_WEB_CLIENT_ID = '995263830606-1o5ivn1as03p31lssfhlf2ue3b1cs8r7.apps.googleusercontent.com';
 const CALENDAR_SCOPE = 'https://www.googleapis.com/auth/calendar.readonly';
 
 function getRedirectUri(): string {
