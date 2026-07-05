@@ -10,6 +10,8 @@ interface AuthContextType {
   googleAccessToken: string | null;
   googleCalendars: GoogleCalendarInfo[];
   enabledCalendarIds: string[];
+  outlookAccessToken: string | null;
+  setOutlookAccessToken: (token: string | null) => void;
   setGoogleAccessToken: (token: string | null) => void;
   setEnabledCalendarIds: (ids: string[]) => void;
   setError: (e: string | null) => void;
@@ -27,6 +29,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [googleAccessToken, setGoogleAccessTokenRaw] = useState<string | null>(null);
   const [googleCalendars, setGoogleCalendars] = useState<GoogleCalendarInfo[]>([]);
   const [enabledCalendarIds, setEnabledCalendarIdsRaw] = useState<string[]>([]);
+  const [outlookAccessToken, setOutlookAccessToken] = useState<string | null>(null);
 
   // When the token changes, fetch the calendar list
   const setGoogleAccessToken = (token: string | null) => {
@@ -118,12 +121,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     await signOut();
     setUser(null);
     setGoogleAccessToken(null);
+    setOutlookAccessToken(null);
   };
 
   return (
     <AuthContext.Provider value={{
       user, isLoading, error,
       googleAccessToken, googleCalendars, enabledCalendarIds,
+      outlookAccessToken, setOutlookAccessToken,
       setGoogleAccessToken, setEnabledCalendarIds,
       setError, sendOTPEmail, verifyOTPCode, logout,
     }}>

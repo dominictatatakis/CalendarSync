@@ -6,6 +6,7 @@ import {
 import { useRouter } from 'expo-router';
 import { CalendarEvent } from '../../src/types';
 import { fetchGoogleCalendarEvents } from '../../src/services/googleCalendar';
+import { fetchOutlookCalendarEvents } from '../../src/services/outlookCalendar';
 import { useAuth } from '../../src/contexts/AuthContext';
 
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -17,7 +18,7 @@ type ViewMode = 'month' | 'week' | 'day';
 const HOURS = Array.from({ length: 24 }, (_, i) => i);
 
 export default function CalendarScreen() {
-  const { googleAccessToken, enabledCalendarIds } = useAuth();
+  const { googleAccessToken, enabledCalendarIds, outlookAccessToken } = useAuth();
   const router = useRouter();
   const { width } = useWindowDimensions();
   const isDesktop = width >= 768;
@@ -27,18 +28,22 @@ export default function CalendarScreen() {
   const [events, setEvents] = useState<CalendarEvent[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => { loadEvents(); }, [currentMonth, googleAccessToken, enabledCalendarIds]);
+  useEffect(() => { loadEvents(); }, [currentMonth, googleAccessToken, enabledCalendarIds, outlookAccessToken]);
 
   const loadEvents = async () => {
     setIsLoading(true);
     try {
       const start = new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1);
       const end = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 3, 0);
-      let allEvents: CalendarEvent[] = [];
-      if (googleAccessToken) {
-        const ge = await fetchGoogleCalendarEvents(googleAccessToken, start, end, enabledCalendarIds.length > 0 ? enabledCalendarIds : null);
-        allEvents = [...allEvents, ...ge];
-      }
+      const [googleEvents, outlookEvents] = await Promise.all([
+        googleAccessToken
+          ? fetchGoogleCalendarEvents(googleAccessToken, start, end, enabledCalendarIds.length > 0 ? enabledCalendarIds : null).catch(() => [])
+          : Promise.resolve([]),
+        outlookAccessToken
+          ? fetchOutlookCalendarEvents(outlookAccessToken, start, end).catch(() => [])
+          : Promise.resolve([]),
+      ]);
+      const allEvents = [...googleEvents, ...outlookEvents];
       setEvents(allEvents.sort((a, b) => a.startDate.getTime() - b.startDate.getTime()));
     } finally {
       setIsLoading(false);
@@ -117,12 +122,12 @@ export default function CalendarScreen() {
         />
       )}
 
-      {!googleAccessToken && (
+      {!googleAccessToken && !outlookAccessToken && (
         <TouchableOpacity style={styles.connectBanner} onPress={() => router.push('/(tabs)/settings' as any)}>
           <Text style={styles.connectEmoji}>🔗</Text>
           <View style={styles.connectTextWrap}>
-            <Text style={styles.connectTitle}>Connect your Google Calendar</Text>
-            <Text style={styles.connectText}>Tap to open Settings and see your events here</Text>
+            <Text style={styles.connectTitle}>Connect a calendar</Text>
+            <Text style={styles.connectText}>Link Google or Outlook in Settings to see your events here</Text>
           </View>
           <Text style={styles.connectChevron}>{'›'}</Text>
         </TouchableOpacity>

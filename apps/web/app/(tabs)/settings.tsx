@@ -2,12 +2,25 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Alert, Platform } from 'react-native';
 import { useAuth } from '../../src/contexts/AuthContext';
 import { connectGoogleCalendar } from '../../src/services/googleAuth';
+import { connectOutlookCalendar, isOutlookConfigured } from '../../src/services/outlookAuth';
 
 export default function SettingsScreen() {
   const {
     user, googleAccessToken, googleCalendars, enabledCalendarIds,
+    outlookAccessToken, setOutlookAccessToken,
     setGoogleAccessToken, setEnabledCalendarIds, logout,
   } = useAuth();
+
+  const handleConnectOutlook = async () => {
+    try {
+      const token = await connectOutlookCalendar();
+      setOutlookAccessToken(token);
+    } catch (e: any) {
+      if (e.message !== 'Auth cancelled') {
+        Alert.alert('Error', e.message);
+      }
+    }
+  };
 
   const handleConnectGoogle = async () => {
     try {
@@ -90,16 +103,33 @@ export default function SettingsScreen() {
           )}
         </View>
 
-        <View style={[styles.row, styles.rowDisabled]}>
+        <View style={[styles.row, !isOutlookConfigured() && styles.rowDisabled]}>
           <View style={styles.rowLeft}>
             <View style={[styles.calIcon, { backgroundColor: '#0078D4' }]}>
               <Text style={styles.calIconText}>O</Text>
             </View>
-            <View>
+            <View style={{ flex: 1 }}>
               <Text style={styles.rowLabel}>Outlook Calendar</Text>
-              <Text style={styles.rowSub}>Coming soon</Text>
+              <Text style={styles.rowSub}>
+                {!isOutlookConfigured()
+                  ? 'Coming soon'
+                  : outlookAccessToken
+                    ? 'Connected'
+                    : 'Sync your Outlook events'}
+              </Text>
             </View>
           </View>
+          {isOutlookConfigured() && (
+            outlookAccessToken ? (
+              <TouchableOpacity style={styles.disconnectBtn} onPress={() => setOutlookAccessToken(null)}>
+                <Text style={styles.disconnectBtnText}>Disconnect</Text>
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity style={styles.connectBtn} onPress={handleConnectOutlook}>
+                <Text style={styles.connectBtnText}>Connect</Text>
+              </TouchableOpacity>
+            )
+          )}
         </View>
       </View>
 
