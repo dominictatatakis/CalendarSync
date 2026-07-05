@@ -20,7 +20,7 @@ export default function TabLayout() {
   const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const activeTab = segments[1] ?? 'calendar';
+  const activeTab = (segments as string[])[1] ?? 'calendar';
 
   const navigateTo = (route: string) => {
     router.push(route as any);

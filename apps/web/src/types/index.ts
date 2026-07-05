@@ -9,6 +9,7 @@ export interface CalendarEvent {
   source: CalendarSource;
   calendarName: string;
   color: string;
+  location?: string;
 }
 
 export interface AppUser {

@@ -3,8 +3,8 @@ import * as SecureStore from 'expo-secure-store';
 import { Platform } from 'react-native';
 import { AppUser, Friend, FriendGroup, Friendship, EventInvite, SharedEvent } from '../types';
 
-const SUPABASE_URL = 'https://jcestqsioldtnsluqfbz.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpjZXN0cXNpb2xkdG5zbHVxZmJ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0MjI0OTQsImV4cCI6MjA5MDk5ODQ5NH0.mz3llWL_lHL68cscp02DGHIOLA7spHIMkqXCF-BKkvg';
+const SUPABASE_URL = 'https://legodplyxrcpougmglgs.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_Fcs9f-wizlxBHmZEDUFLHg_ucegRuyV';
 
 // Use SecureStore on native, localStorage on web
 const ExpoSecureStoreAdapter = {

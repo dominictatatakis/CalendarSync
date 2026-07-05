@@ -58,6 +58,7 @@ export async function fetchGoogleCalendarEvents(
           source: 'google',
           calendarName: cal.summary,
           color: cal.backgroundColor ?? '#4285F4',
+          location: item.location || undefined,
         });
       }
     })
