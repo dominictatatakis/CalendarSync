@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
   sectionTitle: { fontSize: 11, fontWeight: '700', color: '#8e8e93', textTransform: 'uppercase', letterSpacing: 0.5, paddingVertical: 8 },
   sectionHint: { fontSize: 12, color: '#8e8e93', marginBottom: 8 },
   profileRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 12, gap: 14 },
-  avatar: { width: 48, height: 48, borderRadius: 24, backgroundColor: '#007AFF', alignItems: 'center', justifyContent: 'center' },
+  avatar: { width: 48, height: 48, borderRadius: 24, backgroundColor: '#4F46E5', alignItems: 'center', justifyContent: 'center' },
   avatarText: { color: '#fff', fontSize: 17, fontWeight: '700' },
   profileName: { fontSize: 16, fontWeight: '600', color: '#1c1c1e' },
   profileEmail: { fontSize: 13, color: '#8e8e93', marginTop: 2 },
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
   calIconText: { color: '#fff', fontWeight: '700', fontSize: 15 },
   rowLabel: { fontSize: 15, fontWeight: '500', color: '#1c1c1e' },
   rowSub: { fontSize: 12, color: '#8e8e93', marginTop: 1 },
-  connectBtn: { backgroundColor: '#007AFF', borderRadius: 8, paddingHorizontal: 14, paddingVertical: 7 },
+  connectBtn: { backgroundColor: '#4F46E5', borderRadius: 8, paddingHorizontal: 14, paddingVertical: 7 },
   connectBtnText: { color: '#fff', fontWeight: '600', fontSize: 13 },
   disconnectBtn: { borderWidth: 1, borderColor: '#ff3b30', borderRadius: 8, paddingHorizontal: 14, paddingVertical: 6 },
   disconnectBtnText: { color: '#ff3b30', fontWeight: '600', fontSize: 13 },
@@ -188,8 +188,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   checkboxChecked: {
-    backgroundColor: '#007AFF',
-    borderColor: '#007AFF',
+    backgroundColor: '#4F46E5',
+    borderColor: '#4F46E5',
   },
   checkmark: { color: '#fff', fontSize: 13, fontWeight: '700' },
 

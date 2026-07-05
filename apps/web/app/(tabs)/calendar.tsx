@@ -3,6 +3,7 @@ import {
   View, Text, ScrollView, TouchableOpacity, StyleSheet,
   ActivityIndicator, useWindowDimensions,
 } from 'react-native';
+import { useRouter } from 'expo-router';
 import { CalendarEvent } from '../../src/types';
 import { fetchGoogleCalendarEvents } from '../../src/services/googleCalendar';
 import { useAuth } from '../../src/contexts/AuthContext';
@@ -17,6 +18,7 @@ const HOURS = Array.from({ length: 24 }, (_, i) => i);
 
 export default function CalendarScreen() {
   const { googleAccessToken, enabledCalendarIds } = useAuth();
+  const router = useRouter();
   const { width } = useWindowDimensions();
   const isDesktop = width >= 768;
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -116,9 +118,14 @@ export default function CalendarScreen() {
       )}
 
       {!googleAccessToken && (
-        <View style={styles.connectBanner}>
-          <Text style={styles.connectText}>Connect Google Calendar in Settings to see your events</Text>
-        </View>
+        <TouchableOpacity style={styles.connectBanner} onPress={() => router.push('/(tabs)/settings' as any)}>
+          <Text style={styles.connectEmoji}>🔗</Text>
+          <View style={styles.connectTextWrap}>
+            <Text style={styles.connectTitle}>Connect your Google Calendar</Text>
+            <Text style={styles.connectText}>Tap to open Settings and see your events here</Text>
+          </View>
+          <Text style={styles.connectChevron}>{'›'}</Text>
+        </TouchableOpacity>
       )}
     </View>
   );
@@ -207,7 +214,10 @@ function MonthView({ currentMonth, selectedDate, events, isDesktop, onSelectDate
           {selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
         </Text>
         {selectedDayEvents.length === 0 ? (
-          <Text style={styles.noEvents}>No events</Text>
+          <View style={styles.noEventsWrap}>
+            <Text style={styles.noEventsEmoji}>🌤️</Text>
+            <Text style={styles.noEvents}>Nothing scheduled</Text>
+          </View>
         ) : (
           <ScrollView>
             {selectedDayEvents.map(event => (
@@ -269,7 +279,7 @@ function WeekView({ selectedDate, events, isDesktop, onSelectDate }: {
             return (
               <View key={di} style={styles.weekCell}>
                 {cellEvents.map(e => (
-                  <View key={e.id} style={[styles.weekEvent, { backgroundColor: e.color || '#007AFF' }]}>
+                  <View key={e.id} style={[styles.weekEvent, { backgroundColor: e.color || '#4F46E5' }]}>
                     <Text style={styles.weekEventText} numberOfLines={1}>{e.title}</Text>
                     <Text style={styles.weekEventTime}>{fmtTime(e.startDate)}</Text>
                   </View>
@@ -298,7 +308,7 @@ function DayView({ selectedDate, events, isDesktop }: {
         <View style={styles.allDaySection}>
           <Text style={styles.allDayLabel}>All Day</Text>
           {allDayEvents.map(e => (
-            <View key={e.id} style={[styles.allDayEvent, { borderLeftColor: e.color || '#007AFF' }]}>
+            <View key={e.id} style={[styles.allDayEvent, { borderLeftColor: e.color || '#4F46E5' }]}>
               <Text style={styles.allDayEventText}>{e.title}</Text>
             </View>
           ))}
@@ -315,7 +325,7 @@ function DayView({ selectedDate, events, isDesktop }: {
             </View>
             <View style={styles.daySlot}>
               {hourEvents.map(e => (
-                <View key={e.id} style={[styles.dayEvent, { borderLeftColor: e.color || '#007AFF' }]}>
+                <View key={e.id} style={[styles.dayEvent, { borderLeftColor: e.color || '#4F46E5' }]}>
                   <Text style={styles.dayEventTitle}>{e.title}</Text>
                   <Text style={styles.dayEventMeta}>
                     {fmtTime(e.startDate)} {'\u2013'} {fmtTime(e.endDate)}
@@ -339,7 +349,7 @@ function EventRow({ event }: { event: CalendarEvent }) {
 
   return (
     <View style={styles.eventRow}>
-      <View style={[styles.eventColor, { backgroundColor: event.color || '#007AFF' }]} />
+      <View style={[styles.eventColor, { backgroundColor: event.color || '#4F46E5' }]} />
       <View style={styles.eventInfo}>
         <Text style={styles.eventTitle}>{event.title}</Text>
         <Text style={styles.eventMeta}>{timeStr} {'\u00b7'} {event.calendarName}</Text>
@@ -451,12 +461,12 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   cellDesktop: { maxWidth: 64, maxHeight: 64 },
-  cellSelected: { backgroundColor: '#007AFF' },
+  cellSelected: { backgroundColor: '#4F46E5' },
   cellText: { fontSize: 14, color: '#1c1c1e' },
   cellTextDesktop: { fontSize: 13 },
-  cellToday: { fontWeight: '700', color: '#007AFF' },
+  cellToday: { fontWeight: '700', color: '#4F46E5' },
   cellSelectedText: { color: '#fff', fontWeight: '700' },
-  dot: { width: 4, height: 4, borderRadius: 2, backgroundColor: '#007AFF', marginTop: 1 },
+  dot: { width: 4, height: 4, borderRadius: 2, backgroundColor: '#4F46E5', marginTop: 1 },
   dotSelected: { backgroundColor: '#fff' },
 
   // Event panel
@@ -470,8 +480,24 @@ const styles = StyleSheet.create({
   eventTitle: { fontSize: 14, fontWeight: '600', color: '#1c1c1e' },
   eventMeta: { fontSize: 12, color: '#8e8e93', marginTop: 2 },
 
-  connectBanner: { backgroundColor: '#fff8e1', padding: 12, margin: 12, borderRadius: 8 },
-  connectText: { color: '#b45309', fontSize: 13, textAlign: 'center' },
+  connectBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    backgroundColor: '#EEF2FF',
+    borderWidth: 1,
+    borderColor: '#C7D2FE',
+    padding: 14,
+    margin: 12,
+    borderRadius: 12,
+  },
+  connectEmoji: { fontSize: 22 },
+  connectTextWrap: { flex: 1 },
+  connectTitle: { color: '#3730A3', fontSize: 14, fontWeight: '700' },
+  connectText: { color: '#4F46E5', fontSize: 13, marginTop: 1 },
+  connectChevron: { color: '#4F46E5', fontSize: 24, fontWeight: '300' },
+  noEventsWrap: { alignItems: 'center', marginTop: 32, gap: 6 },
+  noEventsEmoji: { fontSize: 32 },
 
   // Week view
   weekContainer: { flex: 1 },
@@ -479,10 +505,10 @@ const styles = StyleSheet.create({
   weekDayHeader: { flex: 1, alignItems: 'center', paddingVertical: 6, borderRadius: 8 },
   weekDayHeaderActive: { backgroundColor: '#f2f2f7' },
   weekDayName: { fontSize: 11, color: '#8e8e93', fontWeight: '600' },
-  weekDayToday: { color: '#007AFF' },
+  weekDayToday: { color: '#4F46E5' },
   weekDayNum: { fontSize: 20, fontWeight: '600', color: '#1c1c1e', marginTop: 2 },
-  weekDayNumToday: { color: '#007AFF' },
-  weekDayNumSelected: { color: '#fff', backgroundColor: '#007AFF', borderRadius: 20, width: 32, height: 32, textAlign: 'center', lineHeight: 32, overflow: 'hidden' },
+  weekDayNumToday: { color: '#4F46E5' },
+  weekDayNumSelected: { color: '#fff', backgroundColor: '#4F46E5', borderRadius: 20, width: 32, height: 32, textAlign: 'center', lineHeight: 32, overflow: 'hidden' },
   weekRow: { flexDirection: 'row', minHeight: 48, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: '#f0f0f0' },
   weekCell: { flex: 1, borderLeftWidth: StyleSheet.hairlineWidth, borderLeftColor: '#f0f0f0', padding: 2 },
   weekEvent: { borderRadius: 4, padding: 3, marginBottom: 1 },

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, useWindowDimensions, Platform } from 'react-native';
 import { Slot, useRouter, useSegments } from 'expo-router';
 import { useFriends } from '../../src/contexts/FriendsContext';
+import { colors } from '../../src/theme';
 
 const BREAKPOINT = 768;
 
@@ -104,11 +105,11 @@ const styles = StyleSheet.create({
   desktopRoot: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: '#f5f5f7',
+    backgroundColor: colors.background,
   },
   sidebar: {
     width: 220,
-    backgroundColor: '#1c1c1e',
+    backgroundColor: colors.sidebar,
     paddingTop: 24,
     paddingHorizontal: 12,
   },
@@ -130,7 +131,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   sidebarItemActive: {
-    backgroundColor: 'rgba(255,255,255,0.12)',
+    backgroundColor: colors.accent,
   },
   sidebarIcon: {
     fontSize: 18,
@@ -197,7 +198,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   bottomTabLabelActive: {
-    color: '#007AFF',
+    color: colors.accent,
     fontWeight: '600',
   },
   bottomBadge: {
