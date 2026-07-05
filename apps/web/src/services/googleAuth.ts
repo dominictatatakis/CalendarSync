@@ -11,51 +11,27 @@ function getRedirectUri(): string {
 }
 
 /**
- * Generate a random code verifier for PKCE
- */
-function generateCodeVerifier(): string {
-  const array = new Uint8Array(32);
-  crypto.getRandomValues(array);
-  return Array.from(array, b => b.toString(36).padStart(2, '0')).join('').slice(0, 64);
-}
-
-/**
- * Generate the code challenge from the verifier (S256)
- */
-async function generateCodeChallenge(verifier: string): Promise<string> {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(verifier);
-  const hash = await crypto.subtle.digest('SHA-256', data);
-  return btoa(String.fromCharCode(...new Uint8Array(hash)))
-    .replace(/\+/g, '-')
-    .replace(/\//g, '_')
-    .replace(/=+$/, '');
-}
-
-/**
  * Opens a Google OAuth popup to get a Calendar access token.
- * Uses authorization code flow with PKCE (recommended for SPAs).
+ * Uses the implicit (token) flow: Google returns the access token directly in
+ * the redirect fragment. Browser apps can't hold a client secret, and Google's
+ * token endpoint requires one for Web clients even with PKCE, so the
+ * authorization-code flow is not usable here.
  */
 export async function connectGoogleCalendar(): Promise<string> {
   if (Platform.OS !== 'web') {
     throw new Error('Use expo-auth-session for native');
   }
 
-  const codeVerifier = generateCodeVerifier();
-  const codeChallenge = await generateCodeChallenge(codeVerifier);
   const state = Math.random().toString(36).substring(2);
   const redirectUri = getRedirectUri();
 
   const params = new URLSearchParams({
     client_id: GOOGLE_WEB_CLIENT_ID,
     redirect_uri: redirectUri,
-    response_type: 'code',
+    response_type: 'token',
     scope: `openid email profile ${CALENDAR_SCOPE}`,
     state,
     prompt: 'consent',
-    access_type: 'offline',
-    code_challenge: codeChallenge,
-    code_challenge_method: 'S256',
   });
 
   const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?${params}`;
@@ -88,10 +64,13 @@ export async function connectGoogleCalendar(): Promise<string> {
           clearInterval(interval);
           popup.close();
 
+          // Implicit flow returns the token in the URL fragment:
+          //   #access_token=...&state=...&expires_in=...
           const urlObj = new URL(url);
-          const code = urlObj.searchParams.get('code');
-          const returnedState = urlObj.searchParams.get('state');
-          const error = urlObj.searchParams.get('error');
+          const fragment = new URLSearchParams(urlObj.hash.replace(/^#/, ''));
+          const accessToken = fragment.get('access_token');
+          const returnedState = fragment.get('state');
+          const error = fragment.get('error') ?? urlObj.searchParams.get('error');
 
           if (error) {
             reject(new Error(`Google auth error: ${error}`));
@@ -101,33 +80,11 @@ export async function connectGoogleCalendar(): Promise<string> {
             reject(new Error('State mismatch'));
             return;
           }
-          if (!code) {
-            reject(new Error('No authorization code returned'));
+          if (!accessToken) {
+            reject(new Error('No access token returned'));
             return;
           }
-
-          // Exchange code for tokens using PKCE (no client secret needed)
-          try {
-            const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-              body: new URLSearchParams({
-                client_id: GOOGLE_WEB_CLIENT_ID,
-                code,
-                code_verifier: codeVerifier,
-                grant_type: 'authorization_code',
-                redirect_uri: redirectUri,
-              }),
-            });
-            const tokenJson = await tokenRes.json();
-            if (tokenJson.error) {
-              reject(new Error(tokenJson.error_description || tokenJson.error));
-              return;
-            }
-            resolve(tokenJson.access_token);
-          } catch (err: any) {
-            reject(new Error(`Token exchange failed: ${err.message}`));
-          }
+          resolve(accessToken);
         }
       } catch {
         // Cross-origin — popup hasn't redirected back yet
