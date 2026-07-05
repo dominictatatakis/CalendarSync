@@ -10,6 +10,10 @@ additional_redirect_urls = [
   "http://localhost:8081/**",
 ]
 
-[auth.email.template.magic_link]
-subject = "Your CalendarSync sign-in code"
-content_path = "./supabase/templates/magic_link.html"
+# NOTE: custom email templates require a paid plan or custom SMTP provider.
+# The default email sends a magic link, which the web app supports
+# (detectSessionInUrl picks up the session on redirect). If you add SMTP later,
+# re-enable this block to send 6-digit codes instead:
+# [auth.email.template.magic_link]
+# subject = "Your CalendarSync sign-in code"
+# content_path = "./supabase/templates/magic_link.html"

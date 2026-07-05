@@ -68,7 +68,7 @@ export default function SignInScreen() {
             </TouchableOpacity>
 
             <Text style={styles.hint}>
-              No password needed — we'll email you a 6-digit code.
+              No password needed — we'll email you a sign-in link.
             </Text>
           </View>
         </View>

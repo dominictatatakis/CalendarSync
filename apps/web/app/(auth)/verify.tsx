@@ -37,11 +37,19 @@ export default function VerifyScreen() {
             </View>
             <Text style={styles.title}>Check your email</Text>
             <Text style={styles.subtitle}>
-              We sent a 6-digit code to{'\n'}<Text style={styles.email}>{email}</Text>
+              We sent a sign-in link to{'\n'}<Text style={styles.email}>{email}</Text>
+            </Text>
+            <Text style={styles.linkHint}>
+              Open the link and you'll be signed in automatically.
             </Text>
           </View>
 
           <View style={styles.form}>
+            <View style={styles.divider}>
+              <View style={styles.dividerLine} />
+              <Text style={styles.dividerText}>have a code instead?</Text>
+              <View style={styles.dividerLine} />
+            </View>
             <TextInput
               style={styles.input}
               placeholder="000000"
@@ -113,6 +121,15 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   email: { fontWeight: '600', color: colors.ink },
+  linkHint: {
+    fontSize: 13,
+    color: colors.inkTertiary,
+    marginTop: 10,
+    textAlign: 'center',
+  },
+  divider: { flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 4 },
+  dividerLine: { flex: 1, height: 1, backgroundColor: colors.border },
+  dividerText: { fontSize: 12, color: colors.inkTertiary, fontWeight: '500' },
   form: { gap: 12 },
   input: {
     borderWidth: 1,
