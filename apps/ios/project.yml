@@ -1,0 +1,67 @@
+name: CalendarApp
+options:
+  bundleIdPrefix: com.calendarapp
+  deploymentTarget:
+    iOS: "17.0"
+  xcodeVersion: "15.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+
+packages:
+  Supabase:
+    url: https://github.com/supabase/supabase-swift
+    from: "2.0.0"
+  GoogleSignIn:
+    url: https://github.com/google/GoogleSignIn-iOS
+    from: "7.0.0"
+  MSAL:
+    url: https://github.com/AzureAD/microsoft-authentication-library-for-objc
+    from: "1.2.0"
+
+targets:
+  CalendarApp:
+    type: application
+    platform: iOS
+    sources:
+      - CalendarApp
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.dominictatakis.calendarapp
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SWIFT_VERSION: "5.9"
+        INFOPLIST_FILE: CalendarApp/Resources/Info.plist
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_ENTITLEMENTS: CalendarApp/Resources/CalendarApp.entitlements
+    dependencies:
+      - package: Supabase
+        product: Supabase
+      - package: GoogleSignIn
+        product: GoogleSignIn
+      - package: MSAL
+        product: MSAL
+    info:
+      path: CalendarApp/Resources/Info.plist
+      properties:
+        NSCalendarsUsageDescription: "CalendarSync needs access to your calendars to display your events."
+        NSCalendarsFullAccessUsageDescription: "CalendarSync needs full calendar access to display your events and add shared events."
+        NSCalendarsWriteOnlyAccessDescription: "CalendarSync needs calendar access to show your schedule."
+        NSContactsUsageDescription: "CalendarSync accesses contacts to help you find friends by email."
+        CFBundleDisplayName: CalendarSync
+        UILaunchScreen:
+          UIColorName: ""
+          UIImageName: ""
+        CFBundleURLTypes:
+          - CFBundleTypeRole: Editor
+            CFBundleURLSchemes:
+              - "com.googleusercontent.apps.995263830606-vj1t6lf3alm90v3eh7dsu3j9eavsslup"
+        UIBackgroundModes:
+          - remote-notification
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight

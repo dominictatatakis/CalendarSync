@@ -1,0 +1,622 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1E19FD60820B025CB0AD23D5 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C49329A88D39826BB5359A /* Group.swift */; };
+		2ED7C5AFECCC311210DAA5E9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BC0A51CC9F402D2EDCE21C /* SettingsView.swift */; };
+		3013B9224AB8A73994BA0FFE /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = C5052A33598848A5C3EF9BC6 /* PrivacyInfo.xcprivacy */; };
+		3DDD6225F3B5043BBF9811BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4CF58EFDB1EC0DD53312EF /* AppDelegate.swift */; };
+		461E7215A4DC92D7309B6D9F /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF19F85036CA52B5A1B71A0E /* AppUser.swift */; };
+		57F96DF282BECAD441B8E00E /* CreateSharedEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9670AFDB876B877FBBA21EAF /* CreateSharedEventView.swift */; };
+		5ACC40F1133542BDCCFF2542 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A36BFF863F6B34B4746BFF0 /* DayView.swift */; };
+		5D484D7799F43D5830194776 /* CalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8805917FFABDDCE016C297ED /* CalendarEvent.swift */; };
+		631F9F8ECECCFCB8735ACE78 /* FriendAvailabilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543562991109703A9765454 /* FriendAvailabilityView.swift */; };
+		64E0A9ED93F27F85A39C94BF /* SharedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A718EDD36DE0C55225E93EDB /* SharedEvent.swift */; };
+		6916DEA8E759DDD780E33FFD /* AppleCalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49698031259669A33E6AEB4A /* AppleCalendarService.swift */; };
+		692391683D95A6CE89C6EA7B /* CalendarAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A47AA3DBD752D80B46A6420 /* CalendarAppApp.swift */; };
+		6D6156E1AE4A40274E591585 /* supabase_schema.sql in Resources */ = {isa = PBXBuildFile; fileRef = D42562949EC104B7B6ABEF91 /* supabase_schema.sql */; };
+		73AFF7E6EE869D05EEDBBCF7 /* CalendarSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BABC7AC0332DB67C242373D /* CalendarSource.swift */; };
+		808C266029B1FD01FA84D464 /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060DD828553335BF8304A0C1 /* FriendsViewModel.swift */; };
+		8F450C26FC858F3B34F48875 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03EC0BDB60B14E542E53311 /* EventDetailView.swift */; };
+		8FF205B32FAE8DEB0E9C40EE /* MSAL in Frameworks */ = {isa = PBXBuildFile; productRef = 1C877597BE29EF2F5C5C9EBF /* MSAL */; };
+		97E400B8B92C83A8BB106286 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1F452B6F1B762EEF84CF40 /* CalendarViewModel.swift */; };
+		9FBEFB316C1463468E7C3678 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = FFB4B431A050962825F6E54D /* Supabase */; };
+		A017E401172246DC764B8D1C /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4268517C60486E8A4E8376 /* FriendsView.swift */; };
+		A0416CD890C2F97518236A5C /* UnifiedCalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A74FC33D556A72FA75AE9 /* UnifiedCalendarService.swift */; };
+		A7C7A92CB81551BD9ECC26DB /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB0FDF6E60F17FCFF795EAF /* AddFriendView.swift */; };
+		AF5F9786F7EA24851A0F129A /* IncomingInviteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F22AC6D6D6E3CFE93EC8E /* IncomingInviteView.swift */; };
+		B1AB267A9F80C77C00BCFC97 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 3814B1FB0052B6C370F1A5F6 /* GoogleSignIn */; };
+		B3D7DE138F7EDCDAF755BF35 /* GoogleCalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834BB35FEADC2C395BD8C32E /* GoogleCalendarService.swift */; };
+		B9C3844C72083983E0247E14 /* ConnectedCalendarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657E9111F4C5BEEC4F215479 /* ConnectedCalendarsView.swift */; };
+		BC23E6EB9BA56B8B8298707F /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B4F4A66F38AABB0E4DC68F /* Secrets.swift */; };
+		C1AC10749F3D29FD42BDEE8D /* SupabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81814EB7D68216025E105BF /* SupabaseService.swift */; };
+		CBE487B9A3B59641E7F9701F /* EventSharingSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB37CD6D35E8A41594C9B340 /* EventSharingSheet.swift */; };
+		D5288C0D0269BE6D53ECAAE8 /* CalendarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7232F9CE87D49B07CC1FFCC /* CalendarContainerView.swift */; };
+		D8BCEB146D1D9DDAA52B6657 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359BD79B0E72D310E497E4A6 /* HapticFeedback.swift */; };
+		D9D3CB032B0AC1D0BF925F81 /* ImportContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414B724690007F8E65781485 /* ImportContactsView.swift */; };
+		DA85CBAFF694172C92CEB03D /* OutlookCalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797C3021497605C015D4AEFD /* OutlookCalendarService.swift */; };
+		DD4218DDA0EFE4D66603D66C /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5845B0CCD181181A6B1EA1DD /* WeekView.swift */; };
+		E1D756C89F8CEF69F509466C /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788641ABB8E4391B97A7928 /* MonthView.swift */; };
+		E214580A6D67F3889F0A4200 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE12916E126D5337A36EE19D /* Friend.swift */; };
+		EF0CA7D0969037E9FE20A16D /* OTPVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D12FC84C7340F9F954FA9B7 /* OTPVerificationView.swift */; };
+		F22AFB62D7C13523BA56EE5A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813AEFF14287D3930DE561DB /* NotificationManager.swift */; };
+		FF0E0B4922029AC9DA79D280 /* PhoneAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC4A295B7410DC1ABDCC826 /* PhoneAuthView.swift */; };
+		FF8F45BCCF8551D475DBC486 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630DA13D3DC1547853914176 /* AuthViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		060DD828553335BF8304A0C1 /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
+		1A47AA3DBD752D80B46A6420 /* CalendarAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAppApp.swift; sourceTree = "<group>"; };
+		2BABC7AC0332DB67C242373D /* CalendarSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSource.swift; sourceTree = "<group>"; };
+		30C8744B3A00D534ED4B3900 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		359BD79B0E72D310E497E4A6 /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
+		3D1F452B6F1B762EEF84CF40 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		414B724690007F8E65781485 /* ImportContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportContactsView.swift; sourceTree = "<group>"; };
+		49698031259669A33E6AEB4A /* AppleCalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleCalendarService.swift; sourceTree = "<group>"; };
+		501C746D28BC6BC610BBA122 /* CalendarApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalendarApp.entitlements; sourceTree = "<group>"; };
+		5788641ABB8E4391B97A7928 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
+		5845B0CCD181181A6B1EA1DD /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
+		630DA13D3DC1547853914176 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		657E9111F4C5BEEC4F215479 /* ConnectedCalendarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedCalendarsView.swift; sourceTree = "<group>"; };
+		6D12FC84C7340F9F954FA9B7 /* OTPVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationView.swift; sourceTree = "<group>"; };
+		74B4F4A66F38AABB0E4DC68F /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		797C3021497605C015D4AEFD /* OutlookCalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlookCalendarService.swift; sourceTree = "<group>"; };
+		7A36BFF863F6B34B4746BFF0 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		813AEFF14287D3930DE561DB /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		81C49329A88D39826BB5359A /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		825F22AC6D6D6E3CFE93EC8E /* IncomingInviteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingInviteView.swift; sourceTree = "<group>"; };
+		834BB35FEADC2C395BD8C32E /* GoogleCalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCalendarService.swift; sourceTree = "<group>"; };
+		8805917FFABDDCE016C297ED /* CalendarEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEvent.swift; sourceTree = "<group>"; };
+		92BC0A51CC9F402D2EDCE21C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9670AFDB876B877FBBA21EAF /* CreateSharedEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSharedEventView.swift; sourceTree = "<group>"; };
+		9F26929D3FA8206C874AC575 /* CalendarApp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CalendarApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A03EC0BDB60B14E542E53311 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
+		A718EDD36DE0C55225E93EDB /* SharedEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedEvent.swift; sourceTree = "<group>"; };
+		A7232F9CE87D49B07CC1FFCC /* CalendarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContainerView.swift; sourceTree = "<group>"; };
+		AC4CF58EFDB1EC0DD53312EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AE12916E126D5337A36EE19D /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		B543562991109703A9765454 /* FriendAvailabilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAvailabilityView.swift; sourceTree = "<group>"; };
+		BAB0FDF6E60F17FCFF795EAF /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
+		BB4268517C60486E8A4E8376 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
+		BD9A74FC33D556A72FA75AE9 /* UnifiedCalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedCalendarService.swift; sourceTree = "<group>"; };
+		BF19F85036CA52B5A1B71A0E /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
+		C5052A33598848A5C3EF9BC6 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		D42562949EC104B7B6ABEF91 /* supabase_schema.sql */ = {isa = PBXFileReference; path = supabase_schema.sql; sourceTree = "<group>"; };
+		F81814EB7D68216025E105BF /* SupabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseService.swift; sourceTree = "<group>"; };
+		FB37CD6D35E8A41594C9B340 /* EventSharingSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSharingSheet.swift; sourceTree = "<group>"; };
+		FEC4A295B7410DC1ABDCC826 /* PhoneAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		020F22FAB679BA9748F36F49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FBEFB316C1463468E7C3678 /* Supabase in Frameworks */,
+				B1AB267A9F80C77C00BCFC97 /* GoogleSignIn in Frameworks */,
+				8FF205B32FAE8DEB0E9C40EE /* MSAL in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		009F12971D42C9498174C5E8 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				A7232F9CE87D49B07CC1FFCC /* CalendarContainerView.swift */,
+				7A36BFF863F6B34B4746BFF0 /* DayView.swift */,
+				5788641ABB8E4391B97A7928 /* MonthView.swift */,
+				5845B0CCD181181A6B1EA1DD /* WeekView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		01F5A5A61C79433B8F69F553 /* CalendarApp */ = {
+			isa = PBXGroup;
+			children = (
+				813E792EC6F574F8FB7B6F3C /* App */,
+				6920D99104EA71AAEFE8CDC9 /* Config */,
+				6D80C5A70E3C88C9756B3F51 /* Models */,
+				AA831DBA1DDDC6239B9878B5 /* Resources */,
+				DC832C1BEF12CBF00A6F6B2E /* Services */,
+				F5A1B448D77464C8E7AC672B /* Utilities */,
+				02A70A6D24FFA820703B29EA /* ViewModels */,
+				ED2A6812057DDFE670C311C5 /* Views */,
+			);
+			path = CalendarApp;
+			sourceTree = "<group>";
+		};
+		02A70A6D24FFA820703B29EA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				630DA13D3DC1547853914176 /* AuthViewModel.swift */,
+				3D1F452B6F1B762EEF84CF40 /* CalendarViewModel.swift */,
+				060DD828553335BF8304A0C1 /* FriendsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		6920D99104EA71AAEFE8CDC9 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				74B4F4A66F38AABB0E4DC68F /* Secrets.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		6D80C5A70E3C88C9756B3F51 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BF19F85036CA52B5A1B71A0E /* AppUser.swift */,
+				8805917FFABDDCE016C297ED /* CalendarEvent.swift */,
+				2BABC7AC0332DB67C242373D /* CalendarSource.swift */,
+				AE12916E126D5337A36EE19D /* Friend.swift */,
+				81C49329A88D39826BB5359A /* Group.swift */,
+				A718EDD36DE0C55225E93EDB /* SharedEvent.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		813E792EC6F574F8FB7B6F3C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AC4CF58EFDB1EC0DD53312EF /* AppDelegate.swift */,
+				1A47AA3DBD752D80B46A6420 /* CalendarAppApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		941E3D50FF4F591937CA4D61 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				6D12FC84C7340F9F954FA9B7 /* OTPVerificationView.swift */,
+				FEC4A295B7410DC1ABDCC826 /* PhoneAuthView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		9CFBDAFE06324A7CD56AB39E = {
+			isa = PBXGroup;
+			children = (
+				01F5A5A61C79433B8F69F553 /* CalendarApp */,
+				B83179594B26ED5721E390DA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA831DBA1DDDC6239B9878B5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				501C746D28BC6BC610BBA122 /* CalendarApp.entitlements */,
+				30C8744B3A00D534ED4B3900 /* Info.plist */,
+				C5052A33598848A5C3EF9BC6 /* PrivacyInfo.xcprivacy */,
+				D42562949EC104B7B6ABEF91 /* supabase_schema.sql */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B83179594B26ED5721E390DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9F26929D3FA8206C874AC575 /* CalendarApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D5D19AE4BEA4EC959288B6E7 /* Social */ = {
+			isa = PBXGroup;
+			children = (
+				BAB0FDF6E60F17FCFF795EAF /* AddFriendView.swift */,
+				B543562991109703A9765454 /* FriendAvailabilityView.swift */,
+				BB4268517C60486E8A4E8376 /* FriendsView.swift */,
+				414B724690007F8E65781485 /* ImportContactsView.swift */,
+			);
+			path = Social;
+			sourceTree = "<group>";
+		};
+		DC1F616E2B61AD781C4D529C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				657E9111F4C5BEEC4F215479 /* ConnectedCalendarsView.swift */,
+				92BC0A51CC9F402D2EDCE21C /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DC832C1BEF12CBF00A6F6B2E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				49698031259669A33E6AEB4A /* AppleCalendarService.swift */,
+				834BB35FEADC2C395BD8C32E /* GoogleCalendarService.swift */,
+				813AEFF14287D3930DE561DB /* NotificationManager.swift */,
+				797C3021497605C015D4AEFD /* OutlookCalendarService.swift */,
+				F81814EB7D68216025E105BF /* SupabaseService.swift */,
+				BD9A74FC33D556A72FA75AE9 /* UnifiedCalendarService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E70CD1B252C685C2124E3063 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				9670AFDB876B877FBBA21EAF /* CreateSharedEventView.swift */,
+				A03EC0BDB60B14E542E53311 /* EventDetailView.swift */,
+				FB37CD6D35E8A41594C9B340 /* EventSharingSheet.swift */,
+				825F22AC6D6D6E3CFE93EC8E /* IncomingInviteView.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		ED2A6812057DDFE670C311C5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				941E3D50FF4F591937CA4D61 /* Auth */,
+				009F12971D42C9498174C5E8 /* Calendar */,
+				E70CD1B252C685C2124E3063 /* Events */,
+				DC1F616E2B61AD781C4D529C /* Settings */,
+				D5D19AE4BEA4EC959288B6E7 /* Social */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F5A1B448D77464C8E7AC672B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				359BD79B0E72D310E497E4A6 /* HapticFeedback.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DE278F139424AC7E27E4AB1B /* CalendarApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 878C40B78541C5C4BC54F051 /* Build configuration list for PBXNativeTarget "CalendarApp" */;
+			buildPhases = (
+				68001011E445A985B69CEF56 /* Sources */,
+				80E5A7FE99325CAFCEE3AC57 /* Resources */,
+				020F22FAB679BA9748F36F49 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CalendarApp;
+			packageProductDependencies = (
+				FFB4B431A050962825F6E54D /* Supabase */,
+				3814B1FB0052B6C370F1A5F6 /* GoogleSignIn */,
+				1C877597BE29EF2F5C5C9EBF /* MSAL */,
+			);
+			productName = CalendarApp;
+			productReference = 9F26929D3FA8206C874AC575 /* CalendarApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		60B8E6A7D80FBE443FA40F5B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					DE278F139424AC7E27E4AB1B = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 2777D9551FD39D64AA07EBE1 /* Build configuration list for PBXProject "CalendarApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 9CFBDAFE06324A7CD56AB39E;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				EC98A3F3717632C70F9637DF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				49EBA3E956A8EF990840BB81 /* XCRemoteSwiftPackageReference "microsoft-authentication-library-for-objc" */,
+				0279DDE0503D90D6E3F58B40 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = B83179594B26ED5721E390DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DE278F139424AC7E27E4AB1B /* CalendarApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		80E5A7FE99325CAFCEE3AC57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3013B9224AB8A73994BA0FFE /* PrivacyInfo.xcprivacy in Resources */,
+				6D6156E1AE4A40274E591585 /* supabase_schema.sql in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		68001011E445A985B69CEF56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7C7A92CB81551BD9ECC26DB /* AddFriendView.swift in Sources */,
+				3DDD6225F3B5043BBF9811BF /* AppDelegate.swift in Sources */,
+				461E7215A4DC92D7309B6D9F /* AppUser.swift in Sources */,
+				6916DEA8E759DDD780E33FFD /* AppleCalendarService.swift in Sources */,
+				FF8F45BCCF8551D475DBC486 /* AuthViewModel.swift in Sources */,
+				692391683D95A6CE89C6EA7B /* CalendarAppApp.swift in Sources */,
+				D5288C0D0269BE6D53ECAAE8 /* CalendarContainerView.swift in Sources */,
+				5D484D7799F43D5830194776 /* CalendarEvent.swift in Sources */,
+				73AFF7E6EE869D05EEDBBCF7 /* CalendarSource.swift in Sources */,
+				97E400B8B92C83A8BB106286 /* CalendarViewModel.swift in Sources */,
+				B9C3844C72083983E0247E14 /* ConnectedCalendarsView.swift in Sources */,
+				57F96DF282BECAD441B8E00E /* CreateSharedEventView.swift in Sources */,
+				5ACC40F1133542BDCCFF2542 /* DayView.swift in Sources */,
+				8F450C26FC858F3B34F48875 /* EventDetailView.swift in Sources */,
+				CBE487B9A3B59641E7F9701F /* EventSharingSheet.swift in Sources */,
+				E214580A6D67F3889F0A4200 /* Friend.swift in Sources */,
+				631F9F8ECECCFCB8735ACE78 /* FriendAvailabilityView.swift in Sources */,
+				A017E401172246DC764B8D1C /* FriendsView.swift in Sources */,
+				808C266029B1FD01FA84D464 /* FriendsViewModel.swift in Sources */,
+				B3D7DE138F7EDCDAF755BF35 /* GoogleCalendarService.swift in Sources */,
+				1E19FD60820B025CB0AD23D5 /* Group.swift in Sources */,
+				D8BCEB146D1D9DDAA52B6657 /* HapticFeedback.swift in Sources */,
+				D9D3CB032B0AC1D0BF925F81 /* ImportContactsView.swift in Sources */,
+				AF5F9786F7EA24851A0F129A /* IncomingInviteView.swift in Sources */,
+				E1D756C89F8CEF69F509466C /* MonthView.swift in Sources */,
+				F22AFB62D7C13523BA56EE5A /* NotificationManager.swift in Sources */,
+				EF0CA7D0969037E9FE20A16D /* OTPVerificationView.swift in Sources */,
+				DA85CBAFF694172C92CEB03D /* OutlookCalendarService.swift in Sources */,
+				FF0E0B4922029AC9DA79D280 /* PhoneAuthView.swift in Sources */,
+				BC23E6EB9BA56B8B8298707F /* Secrets.swift in Sources */,
+				2ED7C5AFECCC311210DAA5E9 /* SettingsView.swift in Sources */,
+				64E0A9ED93F27F85A39C94BF /* SharedEvent.swift in Sources */,
+				C1AC10749F3D29FD42BDEE8D /* SupabaseService.swift in Sources */,
+				A0416CD890C2F97518236A5C /* UnifiedCalendarService.swift in Sources */,
+				DD4218DDA0EFE4D66603D66C /* WeekView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		43929FB8D75C0080F0E816E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		82D71C12544E50647B57869D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A01612E77932C52DD6E5C857 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CalendarApp/Resources/CalendarApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CalendarApp/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dominictatakis.calendarapp;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A723EA7276EB426F14D2E855 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CalendarApp/Resources/CalendarApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CalendarApp/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dominictatakis.calendarapp;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2777D9551FD39D64AA07EBE1 /* Build configuration list for PBXProject "CalendarApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82D71C12544E50647B57869D /* Debug */,
+				43929FB8D75C0080F0E816E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		878C40B78541C5C4BC54F051 /* Build configuration list for PBXNativeTarget "CalendarApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A01612E77932C52DD6E5C857 /* Debug */,
+				A723EA7276EB426F14D2E855 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0279DDE0503D90D6E3F58B40 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		49EBA3E956A8EF990840BB81 /* XCRemoteSwiftPackageReference "microsoft-authentication-library-for-objc" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AzureAD/microsoft-authentication-library-for-objc";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+		EC98A3F3717632C70F9637DF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1C877597BE29EF2F5C5C9EBF /* MSAL */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 49EBA3E956A8EF990840BB81 /* XCRemoteSwiftPackageReference "microsoft-authentication-library-for-objc" */;
+			productName = MSAL;
+		};
+		3814B1FB0052B6C370F1A5F6 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC98A3F3717632C70F9637DF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		FFB4B431A050962825F6E54D /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0279DDE0503D90D6E3F58B40 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 60B8E6A7D80FBE443FA40F5B /* Project object */;
+}
